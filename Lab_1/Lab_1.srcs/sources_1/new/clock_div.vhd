@@ -32,7 +32,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity clock_div is
---  Port ( );
+    Port( signal clock_in : in std_logic;
+          signal cnt : out std_logic_vector(25 downto 0);
+          signal clock_out : out std_logic);
 end clock_div;
 
 architecture Behavioral of clock_div is
