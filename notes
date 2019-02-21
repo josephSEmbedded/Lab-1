@@ -1,0 +1,1 @@
+The division ration 125MHz/ 2Hz = 62500000 therefore we need at least 26 bits to represent that number in binary b/c 2^26 = 67108864
