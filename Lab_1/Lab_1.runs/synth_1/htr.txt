@@ -6,4 +6,4 @@
 # Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 #
 
-vivado -log divider_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source divider_top.tcl
+vivado -log fancy_counter.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fancy_counter.tcl

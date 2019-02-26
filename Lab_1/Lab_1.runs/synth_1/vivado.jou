@@ -2,11 +2,11 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Tue Feb 26 11:26:24 2019
-# Process ID: 28660
+# Start of session at: Tue Feb 26 16:16:17 2019
+# Process ID: 8565
 # Current directory: /home/user/Lab-1/Lab_1/Lab_1.runs/synth_1
-# Command line: vivado -log divider_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source divider_top.tcl
-# Log file: /home/user/Lab-1/Lab_1/Lab_1.runs/synth_1/divider_top.vds
+# Command line: vivado -log fancy_counter.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fancy_counter.tcl
+# Log file: /home/user/Lab-1/Lab_1/Lab_1.runs/synth_1/fancy_counter.vds
 # Journal file: /home/user/Lab-1/Lab_1/Lab_1.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
-source divider_top.tcl -notrace
+source fancy_counter.tcl -notrace

@@ -1,13 +1,13 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Tue Feb 26 11:26:56 2019
-| Host         : ece40 running 64-bit Ubuntu 16.04.5 LTS
-| Command      : report_utilization -file divider_top_utilization_synth.rpt -pb divider_top_utilization_synth.pb
-| Design       : divider_top
+| Date         : Tue Feb 26 16:16:48 2019
+| Host         : ece13 running 64-bit Ubuntu 16.04.5 LTS
+| Command      : report_utilization -file fancy_counter_utilization_synth.rpt -pb fancy_counter_utilization_synth.pb
+| Design       : fancy_counter
 | Device       : 7z010clg400-1
 | Design State : Synthesized
------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 
 Utilization Design Information
 
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |   10 |     0 |     17600 |  0.06 |
-|   LUT as Logic          |   10 |     0 |     17600 |  0.06 |
+| Slice LUTs*             |    0 |     0 |     17600 |  0.00 |
+|   LUT as Logic          |    0 |     0 |     17600 |  0.00 |
 |   LUT as Memory         |    0 |     0 |      6000 |  0.00 |
-| Slice Registers         |   28 |     0 |     35200 |  0.08 |
-|   Register as Flip Flop |   28 |     0 |     35200 |  0.08 |
+| Slice Registers         |    0 |     0 |     35200 |  0.00 |
+|   Register as Flip Flop |    0 |     0 |     35200 |  0.00 |
 |   Register as Latch     |    0 |     0 |     35200 |  0.00 |
 | F7 Muxes                |    0 |     0 |      8800 |  0.00 |
 | F8 Muxes                |    0 |     0 |      4400 |  0.00 |
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 28    |          Yes |       Reset |            - |
+| 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |    2 |     0 |       100 |  2.00 |
+| Bonded IOB                  |    4 |     0 |       100 |  4.00 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | Bonded IOPADs               |    0 |     0 |       130 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         2 |  0.00 |
@@ -113,7 +113,7 @@ Table of Contents
 +------------+------+-------+-----------+-------+
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
-| BUFGCTRL   |    1 |     0 |        32 |  3.13 |
+| BUFGCTRL   |    0 |     0 |        32 |  0.00 |
 | BUFIO      |    0 |     0 |         8 |  0.00 |
 | MMCME2_ADV |    0 |     0 |         2 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |         2 |  0.00 |
@@ -146,15 +146,7 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   28 |        Flop & Latch |
-| CARRY4   |    7 |          CarryLogic |
-| LUT4     |    5 |                 LUT |
-| LUT2     |    3 |                 LUT |
-| OBUF     |    1 |                  IO |
-| LUT6     |    1 |                 LUT |
-| LUT5     |    1 |                 LUT |
-| IBUF     |    1 |                  IO |
-| BUFG     |    1 |               Clock |
+| OBUF     |    4 |                  IO |
 +----------+------+---------------------+
 
 
