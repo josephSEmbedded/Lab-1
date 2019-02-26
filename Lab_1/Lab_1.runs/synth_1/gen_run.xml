@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1551194449">
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1551198383">
   <File Type="VDS-TIMING-PB" Name="divider_top_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="divider_top_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="divider_top.dcp"/>
-  <File Type="PA-TCL" Name="divider_top.tcl"/>
-  <File Type="REPORTS-TCL" Name="divider_top_reports.tcl"/>
-  <File Type="RDS-RDS" Name="divider_top.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="divider_top_drc_synth.rpt"/>
-  <File Type="RDS-UTIL" Name="divider_top_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="divider_top_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="divider_top_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="divider_top_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="divider_top.vds"/>
+  <File Type="REPORTS-TCL" Name="divider_top_reports.tcl"/>
+  <File Type="PA-TCL" Name="divider_top.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/clock_div.vhd">
@@ -19,6 +19,13 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/divider_top.vhd">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/debounce.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
