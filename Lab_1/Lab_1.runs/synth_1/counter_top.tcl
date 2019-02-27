@@ -17,7 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache /tmp/.Xil_js2429/Vivado-7015-ece13/incrSyn
+set_param synth.incrementalSynthesisCache /tmp/.Xil_js2429/Vivado-23774-ece10/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7z010clg400-1
@@ -31,7 +31,12 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_output_repo /home/user/Lab-1/Lab_1/Lab_1.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_vhdl -library xil_defaultlib /home/user/Lab-1/Lab_1/Lab_1.srcs/sources_1/new/fancy_counter.vhd
+read_vhdl -library xil_defaultlib {
+  /home/user/Lab-1/Lab_1/Lab_1.srcs/sources_1/new/clock_div.vhd
+  /home/user/Lab-1/Lab_1/Lab_1.srcs/sources_1/new/debounce.vhd
+  /home/user/Lab-1/Lab_1/Lab_1.srcs/sources_1/new/fancy_counter.vhd
+  /home/user/Lab-1/Lab_1/Lab_1.srcs/sources_1/new/counter_top.vhd
+}
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be
@@ -40,15 +45,18 @@ read_vhdl -library xil_defaultlib /home/user/Lab-1/Lab_1/Lab_1.srcs/sources_1/ne
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc /home/user/Lab-1/Lab_1/Lab_1.srcs/constrs_1/new/Zybo_master.xdc
+set_property used_in_implementation false [get_files /home/user/Lab-1/Lab_1/Lab_1.srcs/constrs_1/new/Zybo_master.xdc]
+
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]
 
-synth_design -top fancy_counter -part xc7z010clg400-1
+synth_design -top counter_top -part xc7z010clg400-1
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef fancy_counter.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file fancy_counter_utilization_synth.rpt -pb fancy_counter_utilization_synth.pb"
+write_checkpoint -force -noxdef counter_top.dcp
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file counter_top_utilization_synth.rpt -pb counter_top_utilization_synth.pb"
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

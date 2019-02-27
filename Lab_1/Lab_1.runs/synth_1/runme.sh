@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log fancy_counter.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fancy_counter.tcl
+EAStep vivado -log counter_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source counter_top.tcl

@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1551215775">
-  <File Type="VDS-TIMING-PB" Name="fancy_counter_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="fancy_counter_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="fancy_counter.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="fancy_counter_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="fancy_counter_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="fancy_counter_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="fancy_counter.vds"/>
-  <File Type="REPORTS-TCL" Name="fancy_counter_reports.tcl"/>
-  <File Type="PA-TCL" Name="fancy_counter.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1551295605">
+  <File Type="VDS-TIMING-PB" Name="counter_top_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="counter_top_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="counter_top.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="counter_top_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="counter_top_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="counter_top_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="counter_top.vds"/>
+  <File Type="REPORTS-TCL" Name="counter_top_reports.tcl"/>
+  <File Type="PA-TCL" Name="counter_top.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/clock_div.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/debounce.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/fancy_counter.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/clock_div.vhd">
+    <File Path="$PSRCDIR/sources_1/new/counter_top.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -31,20 +42,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/debounce.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="fancy_counter"/>
+      <Option Name="TopModule" Val="counter_top"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/Zybo_master.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>

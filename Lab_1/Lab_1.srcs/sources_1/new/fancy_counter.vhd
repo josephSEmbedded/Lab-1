@@ -59,9 +59,11 @@ begin
 if(rising_edge(clk) ) then
 -- enable must be one for anything to happen 
     if en = '1' then
+    --The only operation what can occur with enable set to 1 is reset
         if rst = '1' then
             cnt <= (others => '0');
         end if;
+        --Perform operations when clk enable is 1
         if clk_en = '1' then
              if updn = '1' then
                 if dir = '1' then
