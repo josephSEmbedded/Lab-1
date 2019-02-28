@@ -73,10 +73,12 @@ fancycounter: fancy_counter
              val => value,
              cnt => count);
              
- enable <='1';
- clk_enable <= '1';
+enable <='1';
+value <= "1000";
+direction <= '0';
+clk_enable <= '1';
  
- 
+ --125MHz clock
  process 
  begin
  
@@ -86,6 +88,10 @@ fancycounter: fancy_counter
  wait for 4ns;
 
 end process;
+
+
+
+
  
 
 

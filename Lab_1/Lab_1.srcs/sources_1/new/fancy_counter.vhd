@@ -42,42 +42,62 @@ entity fancy_counter is
            signal rst : in std_logic;
            signal updn : in std_logic;
            signal val : in std_logic_vector(3 downto 0);
-           signal cnt : out std_logic_vector(3 downto 0));
+           signal cnt : out std_logic_vector(3 downto 0) := (others => '0'));
 end fancy_counter;
 
 architecture Behavioral of fancy_counter is
 
 signal dirPrev : std_logic;
-signal counter : std_logic_vector(3 downto 0) := (others => '0');
+signal counter : std_logic_vector(3 downto 0):="0000";
 
 begin
 
-dirPrev <= dir;
 
 process(clk)
 begin
+dirPrev <= dir;
 if(rising_edge(clk) ) then
 -- enable must be one for anything to happen 
     if en = '1' then
-    --The only operation what can occur with enable set to 1 is reset
+    --The only operation that can occur when enable set to 1 is reset
         if rst = '1' then
-            cnt <= (others => '0');
+            counter <= (others => '0');
         end if;
         --Perform operations when clk enable is 1
         if clk_en = '1' then
              if updn = '1' then
                 if dir = '1' then
-                    counter <= std_logic_vector(unsigned(counter)+1);
+--                    counter <= std_logic_vector(unsigned(counter)+1);
+                    if counter /= val then
+                        counter <=  std_logic_vector(unsigned(counter)+1);
+                    else
+                        counter <= "0000";
+                    end if;
                     dirPrev <= dir;
                 else
-                    counter <= std_logic_vector(unsigned(counter)-1);
+--                    counter <= std_logic_vector(unsigned(counter)-1);
+                    if counter /= "0000" then
+                        counter <= std_logic_vector(unsigned(counter)-1);
+                    else
+                        counter <= val;
+                    end if;
                     dirPrev <= dir;
                 end if;
              else
                 if dirPrev = '1' then
-                    counter <= std_logic_vector(unsigned(counter)+1);
+--                    counter <= std_logic_vector(unsigned(counter)+1);
+                      if counter /= val then
+                        counter <= std_logic_vector(unsigned(counter)+1);
+                      else 
+                        counter <= "0000";
+                      end if;
                 else
-                    counter <= std_logic_vector(unsigned(counter)-1);
+--                    counter <= std_logic_vector(unsigned(counter)-1);
+                     if counter /= "0000" then
+                        counter <= std_logic_vector(unsigned(counter)-1);
+                     else
+                        counter <= val;
+                     end if;
                 end if;
              end if;
              if ld = '1' then
@@ -87,7 +107,7 @@ if(rising_edge(clk) ) then
       end if;
 end if;    
 end process;
-                
-                
+
 cnt <= counter;
+
 end Behavioral;
