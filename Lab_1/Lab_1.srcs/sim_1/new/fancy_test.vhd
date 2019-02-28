@@ -74,7 +74,6 @@ fancycounter: fancy_counter
              cnt => count);
              
 enable <='1';
-value <= "1000";
 direction <= '0';
 clk_enable <= '1';
  
@@ -88,6 +87,19 @@ clk_enable <= '1';
  wait for 4ns;
 
 end process;
+
+--process
+--begin
+
+--value <= "1000";
+--wait for 128ns;
+--value <= "1111";
+--wait for 128ns;
+--load <= '1';
+--wait for 128ns;
+
+--end process;
+
 
 
 

@@ -47,8 +47,10 @@ end fancy_counter;
 
 architecture Behavioral of fancy_counter is
 
+signal valueRegistered : std_logic_vector(3 downto 0) := "1111";
 signal dirPrev : std_logic;
 signal counter : std_logic_vector(3 downto 0):="0000";
+
 
 begin
 
@@ -65,43 +67,39 @@ if(rising_edge(clk) ) then
         end if;
         --Perform operations when clk enable is 1
         if clk_en = '1' then
+            if ld ='1' then
+                valueRegistered <= val;
+             end if;
              if updn = '1' then
                 if dir = '1' then
---                    counter <= std_logic_vector(unsigned(counter)+1);
-                    if counter /= val then
+                    if counter /= valueRegistered then
                         counter <=  std_logic_vector(unsigned(counter)+1);
                     else
                         counter <= "0000";
                     end if;
                     dirPrev <= dir;
                 else
---                    counter <= std_logic_vector(unsigned(counter)-1);
                     if counter /= "0000" then
                         counter <= std_logic_vector(unsigned(counter)-1);
                     else
-                        counter <= val;
+                        counter <= valueRegistered;
                     end if;
                     dirPrev <= dir;
                 end if;
              else
                 if dirPrev = '1' then
---                    counter <= std_logic_vector(unsigned(counter)+1);
-                      if counter /= val then
+                      if counter /= valueRegistered then
                         counter <= std_logic_vector(unsigned(counter)+1);
                       else 
                         counter <= "0000";
                       end if;
                 else
---                    counter <= std_logic_vector(unsigned(counter)-1);
                      if counter /= "0000" then
                         counter <= std_logic_vector(unsigned(counter)-1);
                      else
-                        counter <= val;
+                        counter <= valueRegistered;
                      end if;
                 end if;
-             end if;
-             if ld = '1' then
-                counter <= val;
              end if;
          end if;
       end if;
